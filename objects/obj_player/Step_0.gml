@@ -20,8 +20,10 @@ if (xdir != 0 ^^ ydir != 0) && alarm[0] <= 0 {
 	angle = r.direction;
 	
 	// Recoil
-	xspeed += -xdir * recoil_amount;
-	yspeed += -ydir * recoil_amount;
+	if !bracing {
+		xspeed += -xdir * recoil_amount;
+		yspeed += -ydir * recoil_amount;
+	}
 }
 
 
@@ -50,14 +52,22 @@ if place_free(x, y+yspeed) {
 }
 
 // Apply friction
-xspeed -= sign(xspeed) * friction;
-yspeed -= sign(yspeed) * friction;
-
-// Stop jittering
-if xspeed < 1 && xspeed > -1 {
-	xspeed = 0	
+var fric = friction + bracing_friction * real(bracing);
+if abs(xspeed) > fric {
+	xspeed -= sign(xspeed) * fric;
+} else {
+	xspeed = 0;	
 }
 
-if yspeed < 1 && yspeed > -1 {
-	yspeed = 0	
+if abs(yspeed) > fric {
+	yspeed -= sign(yspeed) * fric;
+} else {
+	yspeed = 0;	
+}
+
+// Brace
+if keyboard_check(vk_space) {
+	bracing = true;
+} else {
+	bracing = false;	
 }

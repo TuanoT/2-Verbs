@@ -3,8 +3,9 @@
 xspeed = 0;
 yspeed = 0;
 friction = 1;
+bracing_friction = 3;
 angle = 0;
-
+bracing = false;
 recoil_amount = 10;
 knockback_amount = 20;
 fire_rate = 20;
