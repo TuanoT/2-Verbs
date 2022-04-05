@@ -10,7 +10,7 @@ var right = keyboard_check(ord("D")) || keyboard_check(vk_right);
 var xdir = right - left;
 var ydir = down - up;
 
-if (xdir != 0 ^^ ydir != 0) && alarm[0] <= 0 {
+if (xdir != 0 ^^ ydir != 0) && alarm[0] <= 0 && rockets > 0 {
 	
 	// Create rocket
 	var r = instance_create_depth(x, y, depth+1, obj_rocket);
@@ -18,12 +18,11 @@ if (xdir != 0 ^^ ydir != 0) && alarm[0] <= 0 {
 	r.image_angle = r.direction;
 	alarm[0] = fire_rate;
 	angle = r.direction;
+	rockets--;
 	
 	// Recoil
-	if !bracing {
-		xspeed += -xdir * recoil_amount;
-		yspeed += -ydir * recoil_amount;
-	}
+	xspeed += -xdir * recoil_amount;
+	yspeed += -ydir * recoil_amount;
 }
 
 
@@ -52,22 +51,14 @@ if place_free(x, y+yspeed) {
 }
 
 // Apply friction
-var fric = friction + bracing_friction * real(bracing);
-if abs(xspeed) > fric {
-	xspeed -= sign(xspeed) * fric;
+if abs(xspeed) > friction {
+	xspeed -= sign(xspeed) * friction;
 } else {
 	xspeed = 0;	
 }
 
-if abs(yspeed) > fric {
-	yspeed -= sign(yspeed) * fric;
+if abs(yspeed) > friction {
+	yspeed -= sign(yspeed) * friction;
 } else {
 	yspeed = 0;	
-}
-
-// Brace
-if keyboard_check(vk_space) {
-	bracing = true;
-} else {
-	bracing = false;	
 }

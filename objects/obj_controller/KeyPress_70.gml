@@ -1,3 +1,3 @@
-/// @description Toggle fullscreen
+/// @description Toggle fullscreen (not used)
 
-window_set_fullscreen(!window_get_fullscreen())
+//window_set_fullscreen(!window_get_fullscreen())
