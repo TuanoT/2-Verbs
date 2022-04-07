@@ -19,10 +19,22 @@ if (xdir != 0 ^^ ydir != 0) && alarm[0] <= 0 && rockets > 0 {
 	alarm[0] = fire_rate;
 	angle = r.direction;
 	rockets--;
+	image_index = 0
+	image_speed = 0.5;  // Not tied to fire_rate
 	
 	// Recoil
 	xspeed += -xdir * recoil_amount;
 	yspeed += -ydir * recoil_amount;
+}
+
+// Update image
+if rockets > 0 {
+	if alarm[0] <= 0 {
+		image_index = 4;
+		image_speed = 0;
+	}
+} else {
+	image_index = 0;	
 }
 
 

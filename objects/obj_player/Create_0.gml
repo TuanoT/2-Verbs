@@ -6,6 +6,7 @@ friction = 1;
 angle = 0;
 recoil_amount = 10;
 fire_rate = 20;
+image_speed = 0;
 
 rockets = 24;
 ram = 5;
