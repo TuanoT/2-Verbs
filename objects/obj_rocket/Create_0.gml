@@ -3,3 +3,4 @@
 speed = 20;
 damage = 50;
 explosion_radius = 48;
+knockback = 20;
