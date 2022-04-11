@@ -8,3 +8,7 @@ if instance_number(obj_controller) > 1 {
 randomize();
 cursor_sprite = spr_cursor;
 //display_set_gui_maximise(2, 2);  Not needed in fullscreen
+
+// Global Vars
+global.rockets = 20;
+global.ram = 10;
