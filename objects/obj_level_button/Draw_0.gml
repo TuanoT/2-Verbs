@@ -1,4 +1,4 @@
-/// @description Draw amount of rockets for level
+/// @description Draw shit
 
 draw_self();
 
@@ -14,3 +14,8 @@ draw_text(x, y+40, rockets);
 draw_set_halign(fa_right);
 draw_set_color(c_lime);
 draw_text(x+32, y+40, ram);
+
+// Seleceted
+if selected {
+	draw_sprite(spr_level_button_selector, 0, x, y);
+}

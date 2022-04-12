@@ -1,7 +1,5 @@
 /// @description Init
 
-open = false;
-
 // Auto orientate
 if place_meeting(x, y-32, obj_solid) {
 	image_angle = 90;

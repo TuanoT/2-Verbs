@@ -39,5 +39,16 @@ if instance_exists(obj_player) {
 	
 	draw_set_color(c_white);
 	draw_sprite_ext(spr_GUI_target, 0, xx+32, yy+32, 2, 2, 0, c_white, 1);
-	draw_text(xx+128, yy+32, "10/10");
+	draw_text(xx+128, yy+32, string(global.kill_count) + "/" + string(global.kill_count_target));
+	
+	// Level complete message
+	if global.current_level_completed {
+		draw_sprite(spr_GUI_level_complete, 0, 480, 270);
+	}
 }
+
+// FPS
+draw_set_halign(fa_left);
+draw_set_font(fnt_small);
+draw_set_color(c_lime);
+draw_text(0, 532, fps);

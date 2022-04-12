@@ -4,9 +4,8 @@ instance_create_depth(x, y, depth-1, obj_explosion);
 
 // Player knockback
 if point_distance(x, y, obj_player.x, obj_player.y) < explosion_radius {
-	var dir = point_direction(x, y, obj_player.x, obj_player.y);
-	obj_player.xspeed += lengthdir_x(knockback, dir);
-	obj_player.yspeed += lengthdir_y(knockback, dir);
+	obj_player.xspeed += lengthdir_x(knockback, direction+180);
+	obj_player.yspeed += lengthdir_y(knockback, direction+180);
 }
 
 // Hurt enemies within range

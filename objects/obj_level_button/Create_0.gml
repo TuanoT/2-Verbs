@@ -1,7 +1,4 @@
 /// @description Init
-
-rockets = 25;
-ram = 5;
-level = rm_one;
+selected = false;
 
 image_speed = 0;
