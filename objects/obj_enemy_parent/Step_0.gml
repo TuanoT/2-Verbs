@@ -42,3 +42,15 @@ if abs(yspeed) > friction {
 } else {
 	yspeed = 0;	
 }
+
+
+// Look at Player
+if instance_exists(obj_player) {
+	dir = point_direction(x, y, obj_player.x, obj_player.y);
+	if point_distance(x, y, obj_player.x, obj_player.y) < 64 && xspeed == 0 && yspeed == 0 {
+		angle = dir;	
+	}
+	
+	// Snap angle
+	angle = round(angle/90) * 90;
+}

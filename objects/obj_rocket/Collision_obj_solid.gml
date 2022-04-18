@@ -1,3 +1,5 @@
 /// @description
 
-instance_destroy();
+if other.solid {
+	instance_destroy();
+}

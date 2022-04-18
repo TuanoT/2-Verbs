@@ -16,3 +16,6 @@ if open {
 		image_speed = -1;
 	}
 }
+
+// Update Solid
+solid = !open;

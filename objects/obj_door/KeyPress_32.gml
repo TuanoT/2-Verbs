@@ -1,11 +1,12 @@
 /// @description Toggle open
 
-if obj_player.ram > 0 {
+if obj_player.ram > 0 && obj_player.alive {
 	if open {
+		// Close door
 		open = false;
-		solid = true;
+		alarm[0] = 2;
 	} else {
+		// Open door
 		open = true;
-		solid = false;
 	}
 }

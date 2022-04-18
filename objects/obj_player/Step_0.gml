@@ -10,7 +10,7 @@ var right = keyboard_check(ord("D")) || keyboard_check(vk_right);
 var xdir = right - left;
 var ydir = down - up;
 
-if (xdir != 0 ^^ ydir != 0) && alarm[0] <= 0 && rockets > 0 {
+if (xdir != 0 ^^ ydir != 0) && alarm[0] <= 0 && rockets > 0 && alive {
 	
 	// Create rocket
 	var r = instance_create_depth(x, y, depth+1, obj_rocket);
@@ -21,6 +21,7 @@ if (xdir != 0 ^^ ydir != 0) && alarm[0] <= 0 && rockets > 0 {
 	rockets--;
 	image_index = 0
 	image_speed = 1;  // Not tied to fire_rate
+	//audio_play_sound(snd_rocket_fire_1, 1, false);
 	
 	// Recoil
 	xspeed += -xdir * recoil_amount;
@@ -73,4 +74,44 @@ if abs(yspeed) > friction {
 	yspeed -= sign(yspeed) * friction;
 } else {
 	yspeed = 0;	
+}
+
+
+// DIE
+
+if !alive {
+	if sprite_index = spr_player {
+		sprite_index = spr_player_dead;
+		instance_create_depth(x, y, 10, obj_blood);
+	
+		// Create gibs
+		repeat 2 {
+			var gib = instance_create_depth(x, y, 5, obj_gib);
+			var spd = random_range(10, 15);
+			var dir = random(360);
+			gib.xspeed = lengthdir_x(spd, dir);
+			gib.yspeed = lengthdir_y(spd, dir);
+			gib.sprite_index = spr_player_gib;
+		}
+	}
+	
+	// Rotate
+	angle += (xspeed + yspeed);
+	
+	// Create blood
+	if abs(xspeed) > 2 || abs(yspeed) > 2 && irandom(1) == 1 {
+		var inst = instance_create_depth(x, y, 10, obj_blood_small);
+		inst.image_index = irandom(1);
+		inst.x += random_range(-2, 2);
+		inst.y += random_range(-2, 2);
+	}
+	
+	// Medium Blood
+	if xspeed == 0 && yspeed == 0 && !place_meeting(x, y, obj_blood_medium) {
+		repeat 2 {
+			var inst = instance_create_depth(x, y, 10, obj_blood_medium);
+			inst.x += random_range(-8, 8);
+			inst.y += random_range(-8, 8);
+		}
+	}
 }

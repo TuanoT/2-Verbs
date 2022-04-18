@@ -6,5 +6,6 @@ if !instance_exists(obj_enemy_parent) && instance_exists(obj_player) {
 	// Exit Level
 	if keyboard_check_pressed(vk_space) {
 		room = rm_menu;
+		audio_stop_all();
 	}
 }

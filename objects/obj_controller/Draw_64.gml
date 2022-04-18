@@ -44,6 +44,10 @@ if instance_exists(obj_player) {
 	// Level complete message
 	if global.current_level_completed {
 		draw_sprite(spr_GUI_level_complete, 0, 480, 270);
+	} else if !obj_player.alive {
+		draw_sprite(spr_GUI_restart_dead, 0, 480, 270);
+	} else if obj_player.rockets == 0 && !(instance_exists(obj_explosion) || instance_exists(obj_rocket)) {
+		draw_sprite(spr_GUI_restart_rockets, 0, 480, 270);
 	}
 }
 
