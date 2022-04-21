@@ -1,6 +1,6 @@
 /// @description Check if level completed
 
-if !instance_exists(obj_enemy_parent) && instance_exists(obj_player) {
+if (!instance_exists(obj_enemy_parent) || global.current_level_completed = true) && instance_exists(obj_player) {
 	global.current_level_completed = true;
 	
 	// Exit Level

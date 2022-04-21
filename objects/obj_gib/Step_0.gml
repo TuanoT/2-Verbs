@@ -26,19 +26,25 @@ if abs(yspeed) > friction {
 	yspeed = 0;	
 }
 
+if !crate_frag {
 
-// Create blood
-if abs(xspeed) > 4 || abs(yspeed) > 4 && irandom(1) == 1 {
-	var inst = instance_create_depth(x, y, 10, obj_blood_small);
-	inst.image_index = irandom(1);
-	inst.x += random_range(-2, 2);
-	inst.y += random_range(-2, 2);
-}
+	// Blood trail
+	if abs(xspeed) > 4 || abs(yspeed) > 4 && irandom(1) == 1 {
+		var inst = instance_create_depth(x, y, 10, obj_blood_small);
+		inst.image_index = irandom(1);
+		inst.x += random_range(-2, 2);
+		inst.y += random_range(-2, 2);
+	}
 
-// Medium Blood
-if !stopped && (xspeed == 0 && yspeed == 0) {
-	var inst = instance_create_depth(x, y, 10, obj_blood_medium);
-	inst.x += random_range(-4, 4);
-	inst.y += random_range(-4, 4);
-	stopped = true;
+	// Medium Blood
+	if !stopped && (xspeed == 0 && yspeed == 0) {
+		var inst = instance_create_depth(x, y, 10, obj_blood_medium);
+		inst.x += random_range(-4, 4);
+		inst.y += random_range(-4, 4);
+		stopped = true;
+	}
+} else {
+	
+	// Rotate
+	image_angle += (xspeed+yspeed) * rot_dir;
 }

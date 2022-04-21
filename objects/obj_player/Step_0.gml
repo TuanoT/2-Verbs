@@ -21,7 +21,6 @@ if (xdir != 0 ^^ ydir != 0) && alarm[0] <= 0 && rockets > 0 && alive {
 	rockets--;
 	image_index = 0
 	image_speed = 1;  // Not tied to fire_rate
-	//audio_play_sound(snd_rocket_fire_1, 1, false);
 	
 	// Recoil
 	xspeed += -xdir * recoil_amount;
@@ -36,6 +35,14 @@ if rockets > 0 {
 	}
 } else {
 	image_index = 0;	
+}
+
+// Update hack light image
+if hack_image != 0 {
+	hack_image += .5;
+	if sprite_get_number(spr_player_hack) == hack_image {
+		hack_image = 0;	
+	}
 }
 
 

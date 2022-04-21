@@ -1,6 +1,12 @@
 /// @description Die
 
 global.kill_count++;
+audio_play_sound_on(global.audio_em, snd_flesh_impact, false, 1);
+
+// Create blood if armoured
+if armoured {
+	instance_create_depth(x, y, 10, obj_blood);
+}
 
 // Create gibs
 repeat gib_count {

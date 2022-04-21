@@ -16,18 +16,21 @@ for (var len = 0; len < max_len; len++) {
 		
 		// Collision with enemy
 		if place_meeting(xx, yy, obj_enemy_parent) {
-			with instance_place(xx, yy, obj_enemy_parent) {
-				hp -= other.damage;
-				if round(hp) % 25 == 0 {
-					instance_create_depth(x, y, 10, obj_blood);
+			if !instance_place(xx, yy, obj_enemy_parent).armoured {
+				with instance_place(xx, yy, obj_enemy_parent) {
+					hp -= other.damage;
+					if round(hp) % 25 == 0 {
+						instance_create_depth(x, y, 10, obj_blood);
+					}
 				}
 			}
 			break;
 		}
 	
 		// Collision with player
-		if place_meeting(xx, yy, obj_player) {
+		if place_meeting(xx, yy, obj_player) && obj_player.alive {
 			obj_player.alive = false;
+			audio_play_sound_on(global.audio_em, snd_flesh_impact, false, 1);
 		}
 	} else {
 		

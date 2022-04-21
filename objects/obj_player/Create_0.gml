@@ -8,6 +8,7 @@ recoil_amount = 10;
 fire_rate = 20;
 image_speed = 0;
 alive = true;
+hack_image = 0;
 
 // Init room
 rockets = global.rockets;

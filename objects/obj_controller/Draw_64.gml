@@ -17,6 +17,9 @@ if instance_exists(obj_player) {
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	draw_text(xx+96, yy+32, obj_player.rockets);
+	if obj_player.rockets == 0 {
+		draw_sprite(spr_GUI_restart_rockets, 0 , xx, yy)	
+	}
 	
 	// RAM
 	xx = 32+128;
@@ -29,6 +32,9 @@ if instance_exists(obj_player) {
 	draw_sprite_ext(spr_GUI_ram, 0, xx+32, yy+32, 2, 2, 0, c_white, 1);
 	draw_set_color(c_white);
 	draw_text(xx+96, yy+32, obj_player.ram);
+	if obj_player.ram == 0 && instance_exists(obj_door) {
+		draw_sprite(spr_GUI_restart_ram, 0 , xx, yy)	
+	}
 	
 	// Targets
 	xx = 960-16-196;
@@ -46,8 +52,6 @@ if instance_exists(obj_player) {
 		draw_sprite(spr_GUI_level_complete, 0, 480, 270);
 	} else if !obj_player.alive {
 		draw_sprite(spr_GUI_restart_dead, 0, 480, 270);
-	} else if obj_player.rockets == 0 && !(instance_exists(obj_explosion) || instance_exists(obj_rocket)) {
-		draw_sprite(spr_GUI_restart_rockets, 0, 480, 270);
 	}
 }
 

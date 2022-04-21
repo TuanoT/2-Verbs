@@ -11,6 +11,9 @@ if selected and !global.key_pressed {
 		if inst && inst.image_index != 0 && (inst.pred == id || pred == inst.id) {
 			inst.selected = true;
 			selected = false;
+			// Sound
+			audio_emitter_pitch(global.audio_em, random_range(.9, 1.1));
+			audio_play_sound_on(global.audio_em, snd_hack_beep, false, 1);
 			
 			// Key press once per frame
 			global.key_pressed = true;
@@ -24,11 +27,22 @@ if selected and !global.key_pressed {
 		if inst && inst.image_index != 0 && (inst.pred == id || pred == inst.id) {
 			inst.selected = true;
 			selected = false;
+			// Sound
+			audio_emitter_pitch(global.audio_em, random_range(.9, 1.1));
+			audio_play_sound_on(global.audio_em, snd_hack_beep, false, 1);
 			
-						
 			// Key press once per frame
 			global.key_pressed = true;
 			obj_controller.alarm[0] = 1;
 		}
 	}
+}
+
+
+// ENTER ROOM
+if selected && (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)) {
+	room = level;
+	global.current_level_id = id;
+	global.rockets = rockets;
+	global.ram = ram;
 }
