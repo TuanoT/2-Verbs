@@ -17,9 +17,11 @@ for (var i = 0; i < instance_number(obj_enemy_parent); ++i;) {
 		instance_create_depth(enemy.x, enemy.y, 10, obj_blood);
 		
 		// Apply knockback
-		var dir = point_direction(x, y, enemy.x, enemy.y);
-		enemy.xspeed += lengthdir_x(knockback, dir);
-		enemy.yspeed += lengthdir_y(knockback, dir);
+		if !enemy.armoured {
+			var dir = point_direction(x, y, enemy.x, enemy.y);
+			enemy.xspeed += lengthdir_x(knockback, dir);
+			enemy.yspeed += lengthdir_y(knockback, dir);
+		}
 	}
 }
 

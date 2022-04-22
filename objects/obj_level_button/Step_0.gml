@@ -40,7 +40,7 @@ if selected and !global.key_pressed {
 
 
 // ENTER ROOM
-if selected && (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)) {
+if selected && keyboard_check_pressed(vk_space) {
 	room = level;
 	global.current_level_id = id;
 	global.rockets = rockets;

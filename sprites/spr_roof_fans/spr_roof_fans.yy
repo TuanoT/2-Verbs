@@ -10,19 +10,19 @@
   "bbox_left": 0,
   "bbox_right": 63,
   "bbox_top": 1,
-  "bbox_bottom": 63,
+  "bbox_bottom": 95,
   "HTile": false,
   "VTile": false,
   "For3D": false,
   "width": 64,
-  "height": 64,
+  "height": 96,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
   },
   "swatchColours": null,
-  "gridX": 8,
-  "gridY": 8,
+  "gridX": 32,
+  "gridY": 32,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"b53f84a5-0ce2-4502-9c59-6aae3382e53f","path":"sprites/spr_roof_fans/spr_roof_fans.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"b53f84a5-0ce2-4502-9c59-6aae3382e53f","path":"sprites/spr_roof_fans/spr_roof_fans.yy",},"LayerId":{"name":"a95e1b8a-6099-4fae-8759-78507bbe8be8","path":"sprites/spr_roof_fans/spr_roof_fans.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
