@@ -22,6 +22,14 @@ for (var i = 0; i < instance_number(obj_enemy_parent); ++i;) {
 			enemy.xspeed += lengthdir_x(knockback, dir);
 			enemy.yspeed += lengthdir_y(knockback, dir);
 		}
+		
+		// Create bomb if a bomber
+		if enemy.hp <= 0 && enemy.bomber {
+			var bomb = instance_create_depth(enemy.x, enemy.y, enemy.depth+1, obj_bomb);
+			var dir = point_direction(x, y, enemy.x, enemy.y);
+			bomb.xspeed += lengthdir_x(knockback, dir);
+			bomb.yspeed += lengthdir_y(knockback, dir);
+		}
 	}
 }
 

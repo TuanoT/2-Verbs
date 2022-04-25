@@ -1,5 +1,7 @@
 /// @description Init
 
+depth = -5;
+
 // Auto orientate
 if place_meeting(x, y-32, obj_solid) && !place_meeting(x, y-32, obj_door) {
 	image_angle = 90;

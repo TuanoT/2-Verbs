@@ -9,3 +9,4 @@ angle = irandom(360);
 gib_sprite = spr_enemy_gib;
 gib_count = 2;
 armoured = false;
+bomber = false;

@@ -11,7 +11,7 @@ window_set_fullscreen(true);
 //display_set_gui_maximise(2, 2);  Not needed in fullscreen
 
 // Global Vars
-global.debug_mode = true;  // Turn off
+global.debug_mode = false;  // Turn off
 global.rockets = -1;
 global.ram = -1;
 global.kill_count = -1;
