@@ -17,3 +17,10 @@ repeat gib_count {
 	gib.yspeed = lengthdir_y(spd, dir);
 	gib.sprite_index = gib_sprite;
 }
+
+// Create bomb if a bomber
+if bomber {
+	var bomb = instance_create_depth(x, y, depth+1, obj_bomb);
+	bomb.xspeed += xspeed;
+	bomb.yspeed += yspeed;
+}

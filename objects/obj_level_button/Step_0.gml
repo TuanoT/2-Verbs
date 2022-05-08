@@ -8,7 +8,7 @@ if selected and !global.key_pressed {
 	// Check x
 	if xdir != 0 {
 		var inst = instance_place(x+(xdir*96), y, obj_level_button);
-		if inst && inst.image_index != 0 && (inst.pred == id || pred == inst.id) {
+		if inst && inst.image_index != 0 && ((inst.pred == id || pred == inst.id) || (inst.pred2 == id || pred2 == inst.id)) {
 			inst.selected = true;
 			selected = false;
 			// Sound
@@ -21,10 +21,10 @@ if selected and !global.key_pressed {
 		}
 	}
 	
-		// Check y
+	// Check y
 	if ydir != 0 {
 		var inst = instance_place(x, y+(ydir*96), obj_level_button);
-		if inst && inst.image_index != 0 && (inst.pred == id || pred == inst.id) {
+		if inst && inst.image_index != 0 && ((inst.pred == id || pred == inst.id) || (inst.pred2 == id || pred2 == inst.id)) {
 			inst.selected = true;
 			selected = false;
 			// Sound

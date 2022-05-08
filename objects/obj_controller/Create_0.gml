@@ -7,8 +7,8 @@ if instance_number(obj_controller) > 1 {
 }
 
 randomize();
-window_set_fullscreen(true);
-//display_set_gui_maximise(2, 2);  Not needed in fullscreen
+//window_set_fullscreen(true);
+//display_set_gui_maximise(2, 2);
 
 // Global Vars
 global.debug_mode = false;  // Turn off
